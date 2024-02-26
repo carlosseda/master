@@ -1,0 +1,39 @@
+.form-element{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-element.hidden{
+  display: none;
+}
+
+.form-element.full-width {
+  width: 100%;
+}
+
+.form-element.half-width {
+  width: 49.5%;
+}
+
+.form-element.one-third-width {
+  width: 32.65%;
+}
+
+.form-element.one-quarter-width {
+  width: 24.25%;
+}
+
+.form-element-label{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.form-element-input input{
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  width: 100%;
+}

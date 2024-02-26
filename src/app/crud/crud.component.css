@@ -1,0 +1,6 @@
+.crud{
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 3fr 7fr;
+  padding: 2rem;
+}

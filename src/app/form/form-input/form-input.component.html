@@ -1,0 +1,8 @@
+<div class="form-element {{width}}" [ngClass]="{'hidden': type === 'hidden'}">
+  <div class="form-element-label" *ngIf="label">
+    <label>{{ label }}</label>
+  </div>
+  <div class="form-element-input">
+    <input [type]="type" [attr.placeholder]="placeholder || null" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled">
+  </div>
+</div>

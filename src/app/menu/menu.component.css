@@ -1,0 +1,15 @@
+a{
+  color: hsl(0, 0%, 100%);
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a.active{
+  text-decoration: underline;
+}
+
+.menu{
+  display: flex;
+  gap: 1rem;
+}

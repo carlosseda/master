@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-boilarplate": {
+    "angular-boilerplate": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-boilarplate",
+            "outputPath": "dist/angular-boilerplate",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angular-boilarplate:build:production"
+              "buildTarget": "angular-boilerplate:build:production"
             },
             "development": {
-              "buildTarget": "angular-boilarplate:build:development"
+              "buildTarget": "angular-boilerplate:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "angular-boilarplate:build"
+            "buildTarget": "angular-boilerplate:build"
           }
         },
         "test": {
