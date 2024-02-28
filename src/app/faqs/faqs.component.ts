@@ -21,7 +21,7 @@ export class FaqsComponent {
         {'label': 'iOS', 'value': 'ios'}
       ]
     },
-    {'name': 'platforms', 'element':'input',  'type': 'radio', 'label': 'Plataformas', 'width': 'full-width', 'options':
+    {'name': 'platforms', 'element':'input', 'type': 'radio', 'label': 'Plataformas', 'width': 'full-width', 'options':
       [
         {'label': 'Web', 'value': 'web'},
         {'label': 'Android', 'value': 'android'},
