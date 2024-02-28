@@ -1,0 +1,8 @@
+<div class="form-element {{width}}">
+  <div class="form-element-label" *ngIf="label">
+    <label>{{ label }}</label>
+  </div>
+  <div class="form-element-input">
+    <textarea [id]="id" [name]="name" [required]="required" [disabled]="disabled" [attr.placeholder]="placeholder || null"></textarea>
+  </div>
+</div>

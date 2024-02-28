@@ -3,37 +3,29 @@ import { FormControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-form-input',
+  selector: 'app-form-select',
   standalone: true,
   imports: [ CommonModule ],
-  templateUrl: './form-input.component.html',
-  styleUrl: './form-input.component.css'
+  templateUrl: './form-select.component.html',
+  styleUrl: './form-select.component.css'
 })
-export class FormInputComponent {
+export class FormSelectComponent {
+  @Input() element: string;
   @Input() label: string;
   @Input() name: string;
-  @Input() type: string;
-  @Input() placeholder: string;
   @Input() id: string;
   @Input() required: boolean;
-  @Input() minlength: number;
-  @Input() maxlength: number;
-  @Input() pattern: string;
   @Input() disabled: boolean;
   @Input() width: string;
   @Input() options: any[];
   control = new FormControl();
 
   constructor() {
+    this.element = '';
     this.label = '';
     this.name = '';
-    this.type = '';
-    this.placeholder = '';
     this.id = '';
     this.required = false;
-    this.minlength = 0;
-    this.maxlength = 0;
-    this.pattern = '';
     this.disabled = false;
     this.width = '';
     this.options = [];

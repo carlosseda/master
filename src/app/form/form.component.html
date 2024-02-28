@@ -1,17 +1,44 @@
 <form class="form" #formContainer>
-  <app-form-input *ngFor="let field of formFields"
-    [label]="field.label"
-    [type]="field.type"
-    [placeholder]="field.placeholder"
-    [name]="field.name"
-    [id]="field.name"
-    [required]="field.required"
-    [minlength]="field.minlength"
-    [maxlength]="field.maxlength"
-    [pattern]="field.pattern"
-    [disabled]="field.disabled"
-    [width]="field.width">
-  </app-form-input>
+  <ng-container *ngFor="let field of formFields">
+
+    <app-form-input *ngIf="field.element === 'input'"
+      [label]="field.label"
+      [type]="field.type"
+      [placeholder]="field.placeholder"
+      [name]="field.name"
+      [id]="field.name"
+      [required]="field.required"
+      [minlength]="field.minlength"
+      [maxlength]="field.maxlength"
+      [pattern]="field.pattern"
+      [disabled]="field.disabled"
+      [width]="field.width"
+      [options]="field.options">
+    </app-form-input>
+
+    <app-form-select *ngIf="field.element === 'select'"
+      [label]="field.label"
+      [name]="field.name"
+      [id]="field.name"
+      [required]="field.required"
+      [disabled]="field.disabled"
+      [width]="field.width"
+      [options]="field.options"
+    >
+    </app-form-select>
+
+    <app-form-textarea *ngIf="field.element === 'textarea'"
+      [label]="field.label"
+      [name]="field.name"
+      [id]="field.name"
+      [required]="field.required"
+      [disabled]="field.disabled"
+      [placeholder]="field.placeholder"
+      [width]="field.width"
+    >
+    </app-form-textarea>
+
+  </ng-container>
   
   <button class="btn btn-primary" (click)="submitForm(formContainer, $event)">Submit</button>
 </form>
