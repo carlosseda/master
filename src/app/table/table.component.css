@@ -1,4 +1,50 @@
+.table-buttons{
+  align-items: center;
+  background-color: hsl(0, 0%, 100%);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.table-buttons button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.table-buttons button svg{
+  fill: hsl(0, 0%, 0%);
+  height: 2rem;
+  width: 2rem;
+}
+
+.table-buttons button svg:hover{
+  fill: hsl(0, 0%, 50%);
+}
+
 .table{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   min-height: 80vh;
+  padding: 0.5rem 0;
   width: 100%;
+}
+
+.no-records{
+  align-items: center;
+  background-color: hsl(278, 100%, 33%);
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.no-records p{
+  color: hsl(0, 0%, 100%);
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
 }

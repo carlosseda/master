@@ -9,7 +9,7 @@ import { CrudComponent } from '../crud/crud.component';
   styleUrl: './faqs.component.css'
 })
 export class FaqsComponent {
-  @Input() formFields = [
+  @Input() formStructure = [
     {"name": "id", "element": "input", "type": "hidden"},
     {"name": "name", "element": "input", "type": "text", "label": "Nombre", "width": "half-width"},
     {"name": "question", "element": "input", "type": "text", "label": "Pregunta", "width": "half-width"},

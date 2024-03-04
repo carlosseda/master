@@ -1,5 +1,5 @@
 <ng-container *ngIf="type === 'hidden'">
-  <input [type]="type" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled">
+  <input  [(ngModel)]="value" (blur)="onTouched()" [type]="type" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled">
 </ng-container>
 
 <ng-container *ngIf="type === 'radio'">
@@ -9,7 +9,7 @@
     </div>
     <div class="form-element-input">
       <ng-container *ngFor="let option of options">
-        <label>{{ option.label }}<input [name]="name" [type]="type" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled"></label>
+        <label>{{ option.label }}<input [(ngModel)]="value" (blur)="onTouched()" [name]="name" [type]="type" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled"></label>
       </ng-container>
     </div>
   </div>
@@ -22,7 +22,7 @@
     </div>
     <div class="form-element-input">
       <ng-container *ngFor="let option of options">
-        <label>{{ option.label }}<input [name]="name" [type]="type" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled"></label>
+        <label>{{ option.label }}<input  [(ngModel)]="value" (blur)="onTouched()" [name]="name" [type]="type" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled"></label>
       </ng-container>
     </div>
   </div>
@@ -34,7 +34,7 @@
       <label>{{ label }}</label>
     </div>
     <div class="form-element-input">
-      <input [type]="type" [attr.placeholder]="placeholder || null" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled">
+      <input [(ngModel)]="value" (blur)="onTouched()" [type]="type" [attr.placeholder]="placeholder || null" [id]="id" [required]="required" [attr.pattern]="pattern || null" [disabled]="disabled">
     </div>
   </div>
 </ng-template>

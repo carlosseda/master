@@ -1,44 +1,52 @@
 <form class="form" #formContainer>
-  <ng-container *ngFor="let field of formFields">
+  <ng-container *ngFor="let field of formStructure">
 
-    <app-form-input *ngIf="field.element === 'input'"
-      [label]="field.label"
-      [type]="field.type"
-      [placeholder]="field.placeholder"
-      [name]="field.name"
-      [id]="field.name"
-      [required]="field.required"
-      [minlength]="field.minlength"
-      [maxlength]="field.maxlength"
-      [pattern]="field.pattern"
-      [disabled]="field.disabled"
-      [width]="field.width"
-      [options]="field.options">
-    </app-form-input>
+    <ng-container *ngIf="field.element === 'input'">
+      <app-form-input
+        [(ngModel)]="formData[field.name]"
+        [label]="field.label"
+        [type]="field.type"
+        [placeholder]="field.placeholder"
+        [name]="field.name"
+        [id]="field.name"
+        [required]="field.required"
+        [minlength]="field.minlength"
+        [maxlength]="field.maxlength"
+        [pattern]="field.pattern"
+        [disabled]="field.disabled"
+        [width]="field.width"
+        [options]="field.options">
+      </app-form-input>
+    </ng-container>
 
-    <app-form-select *ngIf="field.element === 'select'"
-      [label]="field.label"
-      [name]="field.name"
-      [id]="field.name"
-      [required]="field.required"
-      [disabled]="field.disabled"
-      [width]="field.width"
-      [options]="field.options"
-    >
-    </app-form-select>
-
-    <app-form-textarea *ngIf="field.element === 'textarea'"
-      [label]="field.label"
-      [name]="field.name"
-      [id]="field.name"
-      [required]="field.required"
-      [disabled]="field.disabled"
-      [placeholder]="field.placeholder"
-      [width]="field.width"
-    >
-    </app-form-textarea>
-
+    <ng-container *ngIf="field.element === 'select'">
+      <app-form-select
+        [(ngModel)]="formData[field.name]"
+        [label]="field.label"
+        [name]="field.name"
+        [id]="field.name"
+        [required]="field.required"
+        [disabled]="field.disabled"
+        [width]="field.width"
+        [options]="field.options"
+      >
+      </app-form-select>
+    </ng-container>
+  
+    <ng-container *ngIf="field.element === 'textarea'">
+      <app-form-textarea
+        [(ngModel)]="formData[field.name]"
+        [label]="field.label"
+        [name]="field.name"
+        [id]="field.name"
+        [required]="field.required"
+        [disabled]="field.disabled"
+        [placeholder]="field.placeholder"
+        [width]="field.width"
+      >
+      </app-form-textarea>
+    </ng-container>
   </ng-container>
   
-  <button class="btn btn-primary" (click)="submitForm(formContainer, $event)">Submit</button>
+  <button class="btn btn-primary" (click)="submitForm($event)">Submit</button>
 </form>

@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { TableComponent } from '../table/table.component';
 import { FormComponent } from '../form/form.component';
 
-
 @Component({
   selector: 'app-crud',
   standalone: true,
@@ -11,9 +10,13 @@ import { FormComponent } from '../form/form.component';
   styleUrl: './crud.component.css'
 })
 export class CrudComponent {
-  @Input() formFields: any[];
+  @Input() endpoint: string;
+  @Input() formStructure: any[];
+  @Input() tableStructure: any;
 
   constructor() { 
-    this.formFields = [];
+    this.endpoint = '';
+    this.formStructure = [];
+    this.tableStructure = {};
   }
 }

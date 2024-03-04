@@ -3,7 +3,7 @@
     <label>{{ label }}</label>
   </div>
   <div class="form-element-input">
-    <select [id]="id" [name]="name" [required]="required" [disabled]="disabled">
+    <select [(ngModel)]="value" (blur)="onTouched()" [id]="id" [name]="name" [required]="required" [disabled]="disabled">
       <option *ngFor="let option of options" [value]="option.value">{{ option.label }}</option>
     </select>
   </div>
