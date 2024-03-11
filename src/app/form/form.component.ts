@@ -19,35 +19,51 @@ export class FormComponent {
   @Input() endpoint: string;
   @Input() formStructure: any[];
   @Input() formData: any;
+  @Input() method: string;
+  @Input() url: string;
 
   constructor(private dataService: DataService) { 
     this.endpoint = '';
     this.formStructure = [];
     this.formData = {};
+    this.method = 'POST';
+    this.url = '';
   }
 
   ngOnInit() {
+
+    this.url = `${environment.apiUrl}${this.endpoint}`;
+
     this.dataService.currentRecord.subscribe(record => {
       if (record) {
         this.formData = record;
+        this.method = 'PUT';
+        this.url = `${environment.apiUrl}${this.endpoint}/${record.id}`;
       }
     });
   }
 
-  async submitForm(event: Event) {
+  async submitForm() {
 
-    event.preventDefault();
+    try{
+      const response = await fetch(this.url, {
+        method: this.method,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.formData)
+      });
 
-    const response = await fetch(`${environment.apiUrl}${this.endpoint}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(this.formData)
-    });
+      this.dataService.emitRefreshTable();
 
-    const data = await response.json();
+      this.formData = {};
 
+    }catch(error){
+      console.error(error);
+    }
+  }
+
+  async clearForm() {
     this.formData = {};
   }
 }

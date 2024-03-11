@@ -1,0 +1,9 @@
+.tabs-container-menu{
+  align-items: center;
+  box-sizing: border-box;
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+}

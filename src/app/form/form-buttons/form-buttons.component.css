@@ -1,0 +1,18 @@
+.form-buttons{
+  display: flex;
+  gap: 1rem;
+}
+
+.form-button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.form-button svg{
+  fill: rgb(84, 84, 248);
+  height: 2.5rem;
+  width: 2.5rem;
+}
+

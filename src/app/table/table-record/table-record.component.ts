@@ -26,16 +26,13 @@ export class TableRecordComponent {
 
   async editElement() {
     const response = await fetch(`${environment.apiUrl}${this.endpoint}/${this.record.id}`);
-    const data = await response.json();
-    this.dataService.updateRecord(this.record);
+    const record = await response.json();
+    this.dataService.updateRecord(record);
   }
 
   async removeElement() {
-    const response = await fetch(`${environment.apiUrl}${this.endpoint}/${this.record.id}`, {
-      method: 'DELETE'
-    });
-    const data = await response.json();
-    console.log(data);
+    const url = `${environment.apiUrl}${this.endpoint}/${this.record.id}`
+    this.dataService.emitDeleteButtonClicked(url);
   }
 }
 

@@ -1,8 +1,7 @@
 <form class="form" #formContainer>
   <ng-container *ngFor="let field of formStructure">
-
     <ng-container *ngIf="field.element === 'input'">
-      <app-form-input
+      <app-form-input [class]="field.width"
         [(ngModel)]="formData[field.name]"
         [label]="field.label"
         [type]="field.type"
@@ -14,27 +13,25 @@
         [maxlength]="field.maxlength"
         [pattern]="field.pattern"
         [disabled]="field.disabled"
-        [width]="field.width"
         [options]="field.options">
       </app-form-input>
     </ng-container>
 
     <ng-container *ngIf="field.element === 'select'">
-      <app-form-select
+      <app-form-select [class]="field.width"
         [(ngModel)]="formData[field.name]"
         [label]="field.label"
         [name]="field.name"
         [id]="field.name"
         [required]="field.required"
         [disabled]="field.disabled"
-        [width]="field.width"
         [options]="field.options"
       >
       </app-form-select>
     </ng-container>
   
     <ng-container *ngIf="field.element === 'textarea'">
-      <app-form-textarea
+      <app-form-textarea [class]="field.width"
         [(ngModel)]="formData[field.name]"
         [label]="field.label"
         [name]="field.name"
@@ -42,11 +39,8 @@
         [required]="field.required"
         [disabled]="field.disabled"
         [placeholder]="field.placeholder"
-        [width]="field.width"
       >
       </app-form-textarea>
     </ng-container>
   </ng-container>
-  
-  <button class="btn btn-primary" (click)="submitForm($event)">Submit</button>
 </form>

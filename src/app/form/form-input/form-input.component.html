@@ -3,7 +3,7 @@
 </ng-container>
 
 <ng-container *ngIf="type === 'radio'">
-  <div class="form-element {{width}}">
+  <div class="form-element">
     <div class="form-element-label" *ngIf="label">
       <label>{{ label }}</label>
     </div>
@@ -16,7 +16,7 @@
 </ng-container>
 
 <ng-container *ngIf="type === 'checkbox'; else elseBlock">
-  <div class="form-element {{width}}">
+  <div class="form-element">
     <div class="form-element-label" *ngIf="label">
       <label>{{ label }}</label>
     </div>
@@ -29,7 +29,7 @@
 </ng-container>
 
 <ng-template #elseBlock>
-  <div class="form-element {{width}}" [ngClass]="{'hidden': type === 'hidden'}">
+  <div class="form-element" [ngClass]="{'hidden': type === 'hidden'}">
     <div class="form-element-label" *ngIf="label">
       <label>{{ label }}</label>
     </div>

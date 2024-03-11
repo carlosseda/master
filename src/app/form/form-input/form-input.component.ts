@@ -29,7 +29,6 @@ export class FormInputComponent implements ControlValueAccessor {
   @Input() maxlength: number;
   @Input() pattern: string;
   @Input() disabled: boolean;
-  @Input() width: string;
   @Input() options: any[];
   control = new FormControl();
 
@@ -44,7 +43,6 @@ export class FormInputComponent implements ControlValueAccessor {
     this.maxlength = 0;
     this.pattern = '';
     this.disabled = false;
-    this.width = '';
     this.options = [];
   }
 
