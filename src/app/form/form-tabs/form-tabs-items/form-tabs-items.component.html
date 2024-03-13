@@ -1,5 +1,7 @@
-<ng-container tab-menu-items *ngFor="let tab of formStructure.tabs">
-  <button class="tab-button">
-    {{tab.label}}
-  </button>
-</ng-container>
+<ul>
+  <ng-container *ngFor="let tab of tabs; let isFirst = first">
+    <li class="tab-button" [ngClass]="{'active': tab.name === activeTab}" (click)="selectTab(tab.name)">
+      {{tab.label}}
+    </li>
+  </ng-container>
+</ul>

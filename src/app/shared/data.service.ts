@@ -12,6 +12,12 @@ export class DataService {
   private refreshTableSource = new Subject<void>();
   refreshTable = this.refreshTableSource.asObservable();
 
+  private refreshFormSource = new Subject<void>();
+  refreshForm = this.refreshFormSource.asObservable();
+
+  private submitFormSource = new Subject<void>();
+  submitForm = this.submitFormSource.asObservable();
+
   private deleteButtonSource = new BehaviorSubject<any>(null);
   deleteButton = this.deleteButtonSource.asObservable();
 
@@ -23,6 +29,14 @@ export class DataService {
 
   emitRefreshTable() {
     this.refreshTableSource.next();
+  }
+
+  emitRefreshForm() {
+    this.refreshFormSource.next();
+  }
+
+  emitSubmitForm() {
+    this.submitFormSource.next();
   }
 
   emitDeleteButtonClicked(endpoint: string) {

@@ -4,7 +4,7 @@
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  padding: 0.5rem;
+  padding: 0.15rem;
 }
 
 .table-buttons button{

@@ -1,46 +1,51 @@
 <form class="form" #formContainer>
-  <ng-container *ngFor="let field of formStructure">
-    <ng-container *ngIf="field.element === 'input'">
-      <app-form-input [class]="field.width"
-        [(ngModel)]="formData[field.name]"
-        [label]="field.label"
-        [type]="field.type"
-        [placeholder]="field.placeholder"
-        [name]="field.name"
-        [id]="field.name"
-        [required]="field.required"
-        [minlength]="field.minlength"
-        [maxlength]="field.maxlength"
-        [pattern]="field.pattern"
-        [disabled]="field.disabled"
-        [options]="field.options">
-      </app-form-input>
-    </ng-container>
-
-    <ng-container *ngIf="field.element === 'select'">
-      <app-form-select [class]="field.width"
-        [(ngModel)]="formData[field.name]"
-        [label]="field.label"
-        [name]="field.name"
-        [id]="field.name"
-        [required]="field.required"
-        [disabled]="field.disabled"
-        [options]="field.options"
-      >
-      </app-form-select>
-    </ng-container>
-  
-    <ng-container *ngIf="field.element === 'textarea'">
-      <app-form-textarea [class]="field.width"
-        [(ngModel)]="formData[field.name]"
-        [label]="field.label"
-        [name]="field.name"
-        [id]="field.name"
-        [required]="field.required"
-        [disabled]="field.disabled"
-        [placeholder]="field.placeholder"
-      >
-      </app-form-textarea>
-    </ng-container>
+  <ng-container *ngFor="let panel of formStructure | keyvalue ; let isFirst = first">
+    <app-form-tabs-panel [tab]="panel.key" [isActive]="isFirst">
+      <!-- TODO Problema de tipado de panel.value usar interface -->
+      <!-- <ng-container *ngFor="let field of panel.value"> -->
+        <!-- <ng-container *ngIf="field.element === 'input'">
+          <app-form-input [class]="field.width"
+            [(ngModel)]="formData[field.name]"
+            [label]="field.label"
+            [type]="field.type"
+            [placeholder]="field.placeholder"
+            [name]="field.name"
+            [id]="field.name"
+            [required]="field.required"
+            [minlength]="field.minlength"
+            [maxlength]="field.maxlength"
+            [pattern]="field.pattern"
+            [disabled]="field.disabled"
+            [options]="field.options">
+          </app-form-input>
+        </ng-container>
+    
+        <ng-container *ngIf="field.element === 'select'">
+          <app-form-select [class]="field.width"
+            [(ngModel)]="formData[field.name]"
+            [label]="field.label"
+            [name]="field.name"
+            [id]="field.name"
+            [required]="field.required"
+            [disabled]="field.disabled"
+            [options]="field.options"
+          >
+          </app-form-select>
+        </ng-container>
+      
+        <ng-container *ngIf="field.element === 'textarea'">
+          <app-form-textarea [class]="field.width"
+            [(ngModel)]="formData[field.name]"
+            [label]="field.label"
+            [name]="field.name"
+            [id]="field.name"
+            [required]="field.required"
+            [disabled]="field.disabled"
+            [placeholder]="field.placeholder"
+          >
+          </app-form-textarea>
+        </ng-container> -->
+      <!-- </ng-container> -->
+    </app-form-tabs-panel>
   </ng-container>
 </form>

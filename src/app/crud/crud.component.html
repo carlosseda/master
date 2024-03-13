@@ -1,13 +1,13 @@
 <div class="crud">
   <app-table [tableStructure]="tableStructure" [endpoint]="endpoint" />
-  <app-form-tabs>
-    <!-- TODO pasar a componente tabs-items -->
-    <ng-container tab-menu-items *ngFor="let tab of formStructure.tabs">
-      <button class="tab-button">
-        {{tab.label}}
-      </button>
-    </ng-container>
-    <app-form-buttons tab-menu-buttons></app-form-buttons>
-    <app-form tab-content [formStructure]="formStructure" [endpoint]="endpoint"/>
-  </app-form-tabs>
+  <ng-container *ngIf="formStructure.tabs; else noTabs">
+    <app-form-tabs>
+      <app-form-tabs-items tab-menu-items [tabs]="formStructure.tabs"></app-form-tabs-items>
+      <app-form-buttons tab-menu-buttons></app-form-buttons>
+      <app-form tab-content [formStructure]="formStructure.inputs" [endpoint]="endpoint"/>
+    </app-form-tabs>
+  </ng-container>
+  <ng-template #noTabs>
+    <app-form [formStructure]="formStructure.inputs" [endpoint]="endpoint"/>
+  </ng-template>
 </div>
